@@ -1,0 +1,30 @@
+
+
+.container {
+  max-width: 900px; /* Largeur maximale du carrousel */
+  margin: auto; /* Centrer horizontalement */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  border-radius: 10px; /* Bords arrondis */
+  overflow: hidden; /* Assurer que les bords arrondis fonctionnent correctement */
+}
+
+.carousel-item img {
+  object-fit: cover; /* Couvrir l'espace de l'image */
+  height: 500px; /* Hauteur fixe pour toutes les images */
+  border-radius: 10px; /* Bords arrondis pour les images */
+  transition: transform 0.5s ease; /* Transition douce */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  
+  border-radius: 50%; /* Forme ronde */
+  padding: 10px; /* Espacement interne */
+}
+
+
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%; /* Largeur des contrôles */
+}

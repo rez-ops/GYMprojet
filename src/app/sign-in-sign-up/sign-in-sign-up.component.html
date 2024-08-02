@@ -1,0 +1,130 @@
+<br><br><br>
+<div class="container center-div">
+  <div class="form-container">
+    <!-- Pills navs -->
+    <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="btn btn btn-outline-dark active " id="tab-login" data-bs-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="true">Login</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="btn btn btn-outline-dark" id="tab-register" data-bs-toggle="pill" href="#pills-register" role="tab" aria-controls="pills-register" aria-selected="false">Register</a>
+      </li>
+    </ul>
+    <!-- Pills navs -->
+
+    <!-- Pills content -->
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+        <form class="p-4" (ngSubmit)="onSignIn()" [formGroup]="signInForm">
+          <div class="text-center mb-3">
+            <p>Sign in with:</p>
+            <button type="button" class="btn btn btn-outline-dark btn-floating mx-1"><i class="fab fa-facebook-f"></i></button>
+            <button type="button" class="btn btn btn-outline-dark btn-floating mx-1"><i class="fab fa-google"></i></button>
+            <button type="button" class="btn btn btn-outline-dark btn-floating mx-1"><i class="fab fa-twitter"></i></button>
+            <button type="button" class="btn btn btn-outline-dark btn-floating mx-1"><i class="fab fa-github"></i></button>
+          </div>
+
+          <p class="text-center mb-3">or:</p>
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="signInEmail">Email</label>
+            <input type="email" class="form-control border border-secondary" formControlName="signInEmail" id="signInEmail" />
+            <div *ngIf="signInForm.get('signInEmail')?.touched && signInForm.get('signInEmail')?.invalid" class="alert alert-danger">
+              <div *ngIf="signInForm.get('signInEmail')?.errors?.['required']">Email is required!</div>
+              <div *ngIf="signInForm.get('signInEmail')?.errors?.['email']">Invalid email format!</div>
+            </div>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="signInPassword">Password</label>
+            <input type="password" id="signInPassword" class="form-control border border-secondary" formControlName="signInPassword" />
+            <div *ngIf="signInForm.get('signInPassword')?.touched && signInForm.get('signInPassword')?.invalid" class="alert alert-danger">
+              <div *ngIf="signInForm.get('signInPassword')?.errors?.['required']">Password is required!</div>
+              <div *ngIf="signInForm.get('signInPassword')?.errors?.['minlength']">Password must be at least 8 characters long!</div>
+            </div>
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+
+          <!-- Submit button -->
+          <button type="submit" class="btn btn btn-outline-dark btn-block mb-3" [disabled]="signInForm.invalid">Sign in</button>
+        </form>
+      </div>
+
+      <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+        <form class="p-4" (ngSubmit)="onSignUp()" [formGroup]="signUpForm">
+          <div class="text-center mb-3">
+            <p>Sign up with:</p>
+            <button type="button" class="btn btn btn-outline-dark btn-floating mx-1"><i class="fab fa-facebook-f"></i></button>
+            <button type="button" class="btn btn btn-outline-dark btn-floating mx-1"><i class="fab fa-google"></i></button>
+            <button type="button" class="btn btn btn-outline-dark btn-floating mx-1"><i class="fab fa-twitter"></i></button>
+            <button type="button" class="btn btn btn-outline-dark btn-floating mx-1"><i class="fab fa-github"></i></button>
+          </div>
+
+          <p class="text-center mb-3">or:</p>
+
+          <!-- Name input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="signUpName">Name</label>
+            <input type="text" id="signUpName" class="form-control border border-secondary" formControlName="signUpName" />
+            <div *ngIf="signUpForm.get('signUpName')?.touched && signUpForm.get('signUpName')?.invalid" class="alert alert-danger">
+              <div *ngIf="signUpForm.get('signUpName')?.errors?.['required']">Name is required!</div>
+              <div *ngIf="signUpForm.get('signUpName')?.errors?.['minlength']">Name must be at least 2 characters long!</div>
+            </div>
+          </div>
+
+          <!-- Username input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="signUpUsername">Username</label>
+            <input type="text" id="signUpUsername" class="form-control border border-secondary" formControlName="signUpUsername" />
+            <div *ngIf="signUpForm.get('signUpUsername')?.touched && signUpForm.get('signUpUsername')?.invalid" class="alert alert-danger">
+              <div *ngIf="signUpForm.get('signUpUsername')?.errors?.['required']">Username is required!</div>
+              <div *ngIf="signUpForm.get('signUpUsername')?.errors?.['minlength']">Username must be at least 3 characters long!</div>
+            </div>
+          </div>
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="signUpEmail">Email</label>
+            <input type="email" id="signUpEmail" class="form-control border border-secondary" formControlName="signUpEmail" />
+            <div *ngIf="signUpForm.get('signUpEmail')?.touched && signUpForm.get('signUpEmail')?.invalid" class="alert alert-danger">
+              <div *ngIf="signUpForm.get('signUpEmail')?.errors?.['required']">Email is required!</div>
+              <div *ngIf="signUpForm.get('signUpEmail')?.errors?.['email']">Invalid email format!</div>
+            </div>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="signUpPassword">Password</label>
+            <input type="password" id="signUpPassword" class="form-control border border-secondary" formControlName="signUpPassword" />
+            <div *ngIf="signUpForm.get('signUpPassword')?.touched && signUpForm.get('signUpPassword')?.invalid" class="alert alert-danger">
+              <div *ngIf="signUpForm.get('signUpPassword')?.errors?.['required']">Password is required!</div>
+              <div *ngIf="signUpForm.get('signUpPassword')?.errors?.['minlength']">Password must be at least 8 characters long!</div>
+            </div>
+          </div>
+
+          <!-- Repeat Password input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="signUpRepeatPassword">Repeat password</label>
+            <input type="password" id="signUpRepeatPassword" class="form-control border border-secondary" formControlName="signUpRepeatPassword" />
+            <div *ngIf="signUpForm.get('signUpRepeatPassword')?.touched && signUpForm.get('signUpRepeatPassword')?.invalid" class="alert alert-danger">
+              <div *ngIf="signUpForm.get('signUpRepeatPassword')?.errors?.['required']">Repeat password is required!</div>
+              <div *ngIf="signUpForm.get('signUpRepeatPassword')?.errors?.['minlength']">Repeat password must be at least 8 characters long!</div>
+              <div *ngIf="signUpForm.get('signUpRepeatPassword')?.value !== signUpForm.get('signUpPassword')?.value">Passwords must match!</div>
+            </div>
+          </div>
+          <br>
+          <br>
+          
+
+          <!-- Submit button -->
+          <button type="submit" class="btn btn btn-outline-dark btn-block mb-3" [disabled]="signUpForm.invalid">Sign up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

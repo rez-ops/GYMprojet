@@ -1,0 +1,97 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="main-box clearfix">
+					<div class="table-responsive">
+						<table class="table user-list">
+							<thead>
+								<tr>
+									<th><span></span></th>
+									<th><span>Full Name</span></th>
+									<th><span>Birthday&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></th>
+									<th><span>Subscription Type</span></th>
+									<th><span>Email</span></th>
+									<th><span>Phone Number</span></th>
+									<th><span>Subscription Status</span></th>
+									<th><span>Subscription Expiry Date</span></th>
+									<th><span>Last Visit</span></th>
+									<th>&nbsp;</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let user of users">
+									<td>
+										<img [src]="user.img" alt="User Image">
+									</td>
+									<td>{{ user.fullName }}</td>
+									<td>{{ user.birthday | date:'yyyy-MM-dd' }}</td>
+									<td class="text-center">
+										<span class="label label-default">{{ user.subscriptionType }}</span>
+									</td>
+									<td>
+										<a [href]="'mailto:' + user.email">{{ user.email }}</a>
+									</td>
+									<td>{{ user.phoneNumber }}</td>
+									<td>
+										<span class="label label-default">{{ user.subscriptionStatus }}</span>
+									</td>
+									<td>{{ user.subscriptionExpiryDate | date:'yyyy-MM-dd' }}</td>
+									<td>{{ user.lastVisit | date:'yyyy-MM-dd' }}</td>
+									<td style="width: 20%;">
+										
+										<a href="#" class="table-link">
+											<span class="fa-stack">
+												<i class="fa fa-square fa-stack-2x"></i>
+												<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+											</span>
+										</a>
+										<a class="table-link danger" (click)="confirmDelete()">
+											<span class="fa-stack">
+												<i class="fa fa-square fa-stack-2x"></i>
+												<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+											</span>
+										</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<div class="modal fade" id="deleteModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+      
+              <h5 class="modal-title"> Delete Confirmation</h5>
+      
+          </div>
+      
+          <div class="modal-body">
+            <p>Are you sure you want to delete this Event?!</p>
+      
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="deleteEvent()"> Yes</button>
+            <button type="button" class="btn btn-secondary" (click)="closeEvent"> No</button>
+      
+          </div>
+        </div>
+      
+      </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+

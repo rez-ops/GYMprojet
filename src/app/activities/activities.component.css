@@ -1,0 +1,217 @@
+/* General Body Styles */
+body {
+  margin-top: 20px;
+  background: #eee;
+}
+.border-radius-5 {
+  border-radius: 5px;
+}
+
+/* Card Styles */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.25rem;
+  box-shadow: 0px 0px 10px 0px rgb(89 75 128 / 9%);
+}
+
+.card-body {
+  padding: 10px;
+  text-align: center;
+  flex: 0.5;
+  overflow: hidden;
+}
+
+.card-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+
+/* Modal Content Styles */
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+
+/* Team Card Styles */
+.team-style1 {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 300px; /* Fixed width for cards */
+  height: 500px; /* Fixed height for cards */
+}
+
+.team-style1 img {
+  width: 100%; /* Ensures image takes the full width of the card */
+  height: 200px; /* Fixed height for images */
+  object-fit: cover; /* Ensures image covers the area without stretching */
+}
+
+.team-style1 .team-info,
+.team-style1 .team-overlay {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 24.25px 0.75px rgba(0, 0, 0, 0.1);
+}
+
+.team-style1 .team-info {
+  bottom: 15px;
+  padding: 25px 30px;
+  background: #ffffff;
+  transform: translate3d(0px, 0%, 0px);
+  transition: all 800ms ease 0.35s;
+}
+
+.team-style1 .team-overlay {
+  top: 15px;
+  bottom: 15px;
+  padding: 0 20px;
+  opacity: 1;
+  transform: translate3d(0px, -110%, 0px);
+  transition: all 700ms ease 0.35s;
+  background: rgba(53, 157, 138, 0.9);
+}
+
+.team-style1:hover .team-overlay {
+  transform: translate3d(0px, 0, 0px);
+  transition-delay: 0.1s;
+}
+
+.team-style1:hover .team-info {
+  transform: translate3d(0px, 130px, 0px);
+  transition-delay: 0.2s;
+}
+
+.team-style1 .social-icon-style1 {
+  border-top: 2px dotted rgba(255, 255, 255, 0.3);
+  margin-top: 15px;
+  padding-top: 20px;
+}
+
+.social-icon-style1 {
+  margin: 0;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.social-icon-style1 li {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.social-icon-style1 li a {
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 16px;
+  height: 34px;
+  width: 34px;
+  line-height: 34px;
+  text-align: center;
+  color: #2fbfa7;
+  background-color: #ffffff;
+}
+
+/* Utility Classes */
+.rounded {
+  border-radius: 0.25rem !important;
+}
+
+.border-0 {
+  border: 0 !important;
+}
+
+.bg-secondary {
+  background: #15395A !important;
+}
+
+.text-primary {
+  color: #ceaa4d !important;
+}
+
+.text-secondary {
+  color: #15395A !important;
+}
+
+.font-weight-600 {
+  font-weight: 600;
+}
+
+.display-26 {
+  font-size: 1.3rem;
+}
+
+.section-title {
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.p-1-9 {
+  padding: 1.9rem;
+}
+
+.mb-1-9, .my-1-9 {
+  margin-bottom: 1.9rem;
+}
+
+/* Responsive Padding */
+@media screen and (min-width: 992px) {
+  .p-lg-7 {
+    padding: 4rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .p-md-6 {
+    padding: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .p-sm-2-3 {
+    padding: 2.3rem;
+  }
+
+  .pe-sm-6, .px-sm-6 {
+    padding-right: 3.5rem;
+  }
+
+  .ps-sm-6, .px-sm-6 {
+    padding-left: 3.5rem;
+  }
+}
+
+.pe-1-9, .px-1-9 {
+  padding-right: 1.9rem;
+}
+
+.ps-1-9, .px-1-9 {
+  padding-left: 1.9rem;
+}
+
+.pb-1-9, .py-1-9 {
+  padding-bottom: 1.9rem;
+}
+
+.pt-1-9, .py-1-9 {
+  padding-top: 1.9rem;
+}
+
+/* Misc */
+a {
+  text-decoration: none;
+}

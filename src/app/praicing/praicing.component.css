@@ -1,0 +1,28 @@
+/* pricing.component.css */
+.card1, .card2, .card3 {
+  border: 1px solid #ddd;
+  transition: transform 0.2s, background-color 0.2s, color 0.2s;
+  background-color: rgba(245, 239, 247, 0); /* couleur initiale */
+  color: rgb(21, 5, 5); /* couleur initiale */
+}
+
+.card1:hover, .card2:hover, .card3:hover {
+  transform: scale(1.05);
+  background-color: rgb(0, 0, 0); /* couleur inversée */
+  color: white; /* couleur inversée */
+}
+
+.container p-5 {
+  padding: 3rem 0;
+}
+
+/* Styles supplémentaires pour les boutons et les icônes sur le survol */
+.card1:hover .btn, .card2:hover .btn, .card3:hover .btn {
+  color: rgba(2, 2, 2, 0.667);
+  transform: scale(1.05);
+  border-color: rgb(255, 255, 255);
+}
+
+.card1:hover i, .card2:hover i, .card3:hover i {
+  color: white;
+}

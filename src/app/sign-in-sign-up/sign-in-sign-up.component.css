@@ -1,0 +1,26 @@
+.center-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+     /* 
+
+     */
+     max-width: 550px;
+      width: 50%;
+      padding: 40px;
+      background:rgb(242, 236, 236);
+      box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      box-sizing: border-box;
+      flex-direction: column;
+      display: flex;
+    }
+
+    .form-control {
+      border-width: 5px; /* Personnalisez l'épaisseur de la bordure */
+      border-radius: 5px; /* Personnalisez le rayon de la bordure */
+    }
+    

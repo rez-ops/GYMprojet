@@ -1,0 +1,13 @@
+.team-card {
+  transition: background-color 0.2s, color 0.2s;
+  border: 1px solid #ddd;
+  background-color: white;
+  color: rgb(0, 0, 0);
+}
+
+.team-card:hover {
+  transform: scale(1.03);
+  background-color: rgb(29, 28, 28);
+  color: white;
+}
+
