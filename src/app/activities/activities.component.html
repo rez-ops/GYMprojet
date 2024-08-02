@@ -35,7 +35,10 @@
   <div class="card-body">
     <h5 class="card-title"></h5>
     <button class="btn btn btn-outline-dark" (click)="showAddActivities()" >Add Activities</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn btn-outline-dark" (click)="showTimeTable()" >Planning des cours</button>
   </div>
+
   
 <!-- Modal -->
 <div class="modal fade" id="showActivitiesPage" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
@@ -186,3 +189,114 @@
   </div>
   
 
+
+
+
+
+
+
+
+
+
+
+  <div class="modal fade" id="showTimeTable" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+   
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="container-xl px-2 mt-4">
+      <div class="row">
+        <div class="container">
+          <div class="w-95 w-md-75 w-lg-60 w-xl-55 mx-auto mb-6 text-center">
+            <div class="subtitle alt-font">
+              <span class="text-primary"></span>
+              <span class="title">Activities</span>
+            </div>
+            <h2 class="display-18 display-md-16 display-lg-14 mb-0">
+              <span class="text-primary">#Planning des cours</span>
+              <div class="d-flex justify-content-center my-3">
+                <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#addActivityModal">
+                  Add Activity
+                </button>
+              </div>
+            </h2>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="schedule-table">
+                <table class="table bg-white">
+                  <tbody>
+                    <tr *ngFor="let day of days">
+                      <td class="day">{{ day }}</td>
+                      <td *ngFor="let activity of getActivitiesForDay(day)" class="active">
+                        <h4>{{ activity.name }}</h4>
+                        <p>{{ activity.time }}</p>
+                        <div class="hover">
+                          <h4>{{ activity.name }}</h4>
+                          <p>{{ activity.time }}</p>
+                          <span>{{ activity.instructor }}</span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                  <!-- Button to Open Modal -->
+
+                </table>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal for Adding Activities -->
+<div class="modal fade" id="addActivityModal" tabindex="-1" aria-labelledby="addActivityLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addActivityLabel">Add New Activity</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="addActivity()">
+          <div class="mb-3">
+            <label for="activityName" class="form-label">Activity Name</label>
+            <input type="text" class="form-control" id="activityName" [(ngModel)]="newActivity.name" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="activityTime" class="form-label">Time</label>
+            <input type="text" class="form-control" id="activityTime" [(ngModel)]="newActivity.time" name="time" required>
+          </div>
+          <div class="mb-3">
+            <label for="activityInstructor" class="form-label">Instructor</label>
+            <input type="text" class="form-control" id="activityInstructor" [(ngModel)]="newActivity.instructor" name="instructor" required>
+          </div>
+          <div class="mb-3">
+            <label for="activityDay" class="form-label">Day</label>
+            <select class="form-control" id="activityDay" [(ngModel)]="newActivity.day" name="day" required>
+              <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Activity</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

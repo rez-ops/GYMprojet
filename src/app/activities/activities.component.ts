@@ -17,6 +17,7 @@ export class ActivitiesComponent implements OnInit {
   ngOnInit(): void {
     // Initial setup if needed
   }
+  
 
   showActivitiePage(card: Card) {
     this.selectedCard = card;
@@ -27,18 +28,43 @@ export class ActivitiesComponent implements OnInit {
   close() {
     $('#showActivitiesPage').modal('hide');
     $('#showAddActivities').modal('hide');
+    $('#showTimeTable').modal('hide');
   }
 
   showAddActivities() {
     $('#showAddActivities').modal('show');
     }
   
- 
+    showTimeTable() {
+      $('#showTimeTable').modal('show');
+
+    }
+    
+
+    newActivity = { name: '', time: '', instructor: '', day: '' };
+    activities: { name: string, time: string, instructor: string, day: string }[] = [];
+    days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   
+    addActivity() {
+      if (this.newActivity.name && this.newActivity.time && this.newActivity.instructor && this.newActivity.day) {
+        this.activities.push({ ...this.newActivity });
+        this.newActivity = { name: '', time: '', instructor: '', day: '' }; // Reset form
+        this.updateTable();
+        // Close the modal
+        const modalCloseButton = document.querySelector('#addActivityModal .btn-close') as HTMLElement;
+        if (modalCloseButton) {
+          modalCloseButton.click();
+        }
+      }
+    }
   
+    updateTable() {
+      // No direct DOM manipulation needed since Angular will handle it
+    }
   
-  
-  
+    getActivitiesForDay(day: string) {
+      return this.activities.filter(activity => activity.day === day);
+    }
   
   
   
